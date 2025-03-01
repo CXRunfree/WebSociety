@@ -1,7 +1,8 @@
 # 依赖项
 node_modules/
 pnpm-lock.yaml
-
+web-society/node_modules/
+web-society/pnpm-lock.yaml
 # 构建产物
 dist/
 
