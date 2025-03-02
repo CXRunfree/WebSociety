@@ -1,9 +1,29 @@
-export function SideBar() {
-  return `
-    <aside class="w-64 bg-gray-800 text-white p-4">
-        <h2 class="text-lg font-bold">侧边栏</h2>
+// 定义路径到索引的映射关系
+const mapping = {
+    "/index.html": 0,
+    "/event.html": 1,
+    "/member.html": 2,
+    "/contact.html": 3,
+  };
 
-        <div src="https://th.bing.com/th/id/OIP.YpOX5NLSQb6hZ9ewSmIfYQHaNK?rs=1&pid=ImgDetMain">
+// 定义样式
+const focusedStates = ["outline-none","ring-0.9","ring-white" ,"border-white" ,"rounded-r-md"];
+
+export function SideBar() {
+    setTimeout(()=>{
+    // 获取当前路径对应的索引
+    let nowIndex = mapping[window.location.pathname];
+    // 获取所有按钮
+    const sidebarButtons = document.querySelectorAll(".nav-link");
+    // 按钮添加聚焦效果
+    sidebarButtons[nowIndex].classList.add(...focusedStates);
+
+    },10)
+
+  return `
+    <aside class="w-64 bg-[url('https://th.bing.com/th/id/OIP.YpOX5NLSQb6hZ9ewSmIfYQHaNK?rs=1&pid=ImgDetMain')]  bg-fixed   text-white p-4">
+        
+        <div style = "font-family:STXihei, sans-serif; font-size: 24px; font-weight: bold; margin-top: 20px;">
 
 
         <!-- 只有在小屏设备上显示 -->
@@ -22,49 +42,55 @@ export function SideBar() {
 
 
         <!-- 在Web端显示 -->
-        <div class="hidden sm:block">
+        <div class="hidden flex flex-col mt-8 sm:block ">
 
         <!-- 拓荒者图片+基本信息 -->
-        <div>
-        <img src="https://th.bing.com/th/id/OIP.qr4kq7T2IrtuAaZkGZrWcgHaHa?rs=1&pid=ImgDetMain" alt="图片无法显示" class="w-30 h-30 rounded-full border-2 border-gray-300 ">
-        <p class=" text-center text-sm text-gray-500 mt-2">milet</p>
+        <div class="flex items-center justify-center flex-col mb-4">
+        <img src="https://th.bing.com/th/id/OIP.qr4kq7T2IrtuAaZkGZrWcgHaHa?rs=1&pid=ImgDetMain" alt="图片无法显示" class="w-28 h-28  rounded-full ">
+
+        <p class=" text-center text-lg text-gray-200 mt-2">Pioneers' Society <br> 拓荒者学社 <br> <span class=" text-sm font-bold">代码拓荒 算法犁云</span> </p>
 
         </div>
 
         <!-- 导航栏 -->
         <div class=" border-l-2 border-gray-100">
         <nav class="flex flex-col gap-2">
+
+            
             <a
-                href="#"
-                class="shrink-0 border border-transparent p-3 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-0.9 focus:ring-white focus:border-white focus:rounded-r-md"
+                href="index.html"
+                id="home"
+                class="nav-link shrink-0 border border-transparent p-3 text-sm font-medium text-gray-100 hover:text-gray-500 "
             >
                 首页  HOME
             </a>
 
             <a
-                href="#"
-                class="shrink-0 border border-transparent p-3 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-0.9 focus:ring-white focus:border-white focus:rounded-r-md"
+                href="event.html"
+                id = "activities"
+                class="nav-link shrink-0 border border-transparent p-3 text-sm font-medium text-gray-100 hover:text-gray-500 "
             >
                 活动  ACTIVITIES
             </a>
 
             <a
-                href="#"
-                class="shrink-0 border border-transparent p-3 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-0.9 focus:ring-white focus:border-white focus:rounded-r-md"
+                href="member.html"
+                id = "members"
+                class="nav-link shrink-0 border border-transparent p-3 text-sm font-medium text-gray-100 hover:text-gray-500 "
             >
                 成员  MEMBERS
             </a>
 
             <a
-                href="#"
-                class="shrink-0 border border-transparent p-3 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-0.9 focus:ring-white focus:border-white focus:rounded-r-md"
+                href="contact.html"
+                id = "contact"
+                class="nav-link shrink-0 border border-transparent p-3 text-sm font-medium text-gray-100 hover:text-gray-500 "
             >
                 联系 CONTACT US
             </a>
         </nav>
       </div>
     </div>
-
 
 </div>
 

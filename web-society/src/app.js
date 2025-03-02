@@ -1,5 +1,5 @@
 import './style.css'
-import { SideBar } from './sidebar'
+import { SideBar} from './sidebar'
 import { MainContent } from './main-content'
 
 document.addEventListener("DOMContentLoaded",async () => {
